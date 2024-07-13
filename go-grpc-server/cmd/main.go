@@ -11,8 +11,9 @@ func main() {
 	log.SetOutput(logWriter{})
 
 	hs := &application.HelloService{}
+	bs := &application.BankService{}
 
-	grpcAdapter := grpc.NewGrpcAdapter(50051, hs)
+	grpcAdapter := grpc.NewGrpcAdapter(50051, hs, bs)
 
 	grpcAdapter.Run()
 }
